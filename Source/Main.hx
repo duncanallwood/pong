@@ -3,6 +3,11 @@ package ;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.Lib;
+
+import Ball;
+import Platform;
+
+import openfl.Assets;
 import openfl.events.KeyboardEvent;
 import openfl.geom.Point;
 import openfl.text.TextField;
@@ -60,7 +65,7 @@ class Main extends Sprite
 		ball = createBall(250,250);
 		this.addChild(ball);
 
-		var scoreFormat:TextFormat = new TextFormat("Verdana" , 24, 0xbbbbbb, true);
+		var scoreFormat:TextFormat = new TextFormat(Assets.getFont("fonts/VERDANAB.TTF").fontName, 24, 0xbbbbbb, true);
 		scoreFormat.align = TextFormatAlign.CENTER;
 
 		scoreField = new TextField();
@@ -70,7 +75,7 @@ class Main extends Sprite
 		scoreField.defaultTextFormat = scoreFormat;
 		scoreField.selectable = false;
 
-		var messageFormat:TextFormat = new TextFormat("Verdana", 18, 0xbbbbbb, true);
+		var messageFormat:TextFormat = new TextFormat(Assets.getFont("fonts/VERDANAB.TTF").fontName, 18, 0xbbbbbb, true);
 		messageFormat.align = TextFormatAlign.CENTER;
 
 		messageField = new TextField();
@@ -233,10 +238,8 @@ class Main extends Sprite
 	
 	public static function main() 
 	{
-		// static entry point
 		Lib.current.stage.align = flash.display.StageAlign.TOP_LEFT;
 		Lib.current.stage.scaleMode = flash.display.StageScaleMode.NO_SCALE;
 		Lib.current.addChild(new Main());
-		//
 	}
 }
